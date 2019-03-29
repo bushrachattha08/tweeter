@@ -20,6 +20,7 @@ Route::get('users', 'UserController@getAllUsers');
 Route::get('Posts', 'PostController@getAllPosts');
 
 Route::get('PostsByNumber/{number}', 'PostController@getAllPostsByNumber');
+Route::get('PostsByNumber/{number}/{start}', 'PostController@getAllPostsByNumberFromStart');
 Route::get('/comment', 'HomeController@getAllComments');
 
 // Route::get('/editpost', 'HomeController@getAllEditPosts');
