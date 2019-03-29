@@ -1,0 +1,120 @@
+div.bg-color {
+  background-color: #487eb0;
+}
+div.container {
+  div.textillate {
+    color: #fff;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: rgba(255,85,0, .7);
+  text-align: center;
+  color: #4E4C48;
+  font-size: 1.5em;
+}
+
+.img-responsive{
+    width: 60%;
+    border-radius: 50%;
+}
+
+.center{
+    text-align: center;
+}
+/* LAYOUT */
+.container{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60%       40%;
+}
+/* Elements classes */
+.btn{
+    border: 0;
+    box-shadow: 5px 5px 10px #848484;
+    padding: 15px 45px;
+    color: #303233;
+    font-weight: bold;
+    background-color: #fff;
+    text-transform: uppercase;
+    font-family: "h-font";
+}
+/* START HEADER */
+.header{
+    background-image: url('') ;
+    background-blend-mode: overlay;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+}
+.header h1 , .header h2 , .header h3 , .header .txt{
+    margin:0.5rem ;
+}
+.header .type .txt{
+    border-right: 0.2rem solid #777;
+}
+.header h1{
+    font-size: 2.7rem;
+    color: #f3ef09;
+}
+.header h2 {
+    font-size: 1.8rem;
+    color: rgb(231, 217, 13);
+    margin-top: 2rem;
+}
+.header h3{
+    font-size: 1.1rem;
+    color: rgb(223, 219, 219);
+    margin-top: 2rem;
+}
+/* MEDIA QUERY FOR SMALL SCREEN */
+@media(min-width:768px) and (max-width:991px){
+    html{
+        font-size: 15px;
+    }
+    .header{
+        height: 100vh;
+    }
+    .header h1{
+        font-size: 1.8rem;
+        color: #f3ef09;
+    }
+    .header h2{
+        font-size: 1rem;
+        color: #f3ef09;
+    }
+    .header h3{
+        font-size: 0.9rem;
+    }
+}
+/* MEDIA QUERY FOR MOBILE SCREEN */
+@media(max-width:767px){
+    html{
+        font-size: 13px !important;
+    }
+    .img-responsive{
+        width: 40%;
+    }
+    .header{
+        height: 100vh;
+    }
+    .header h1{
+        font-size: 1.5rem;
+    }
+    .header h2{
+        font-size: 1rem;
+    }
+    .header h3{
+        font-size: 0.5rem;
+    }
+}
