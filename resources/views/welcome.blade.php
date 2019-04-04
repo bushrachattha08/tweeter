@@ -82,7 +82,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-bottom">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                    <li class="StreamsFooter-item"><a href="" rel="noopener">About</a></li>
+                    <li class="StreamsFooter-item"><a href="marketing3" rel="noopener">About</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Help Center</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Blog</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Status</a></li>
@@ -90,8 +90,8 @@
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Terms</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Privacy Policy</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Cookies</a></li>
-                    <li class="StreamsFooter-item"><a href="" rel="noopener">Ads info</a></li>
-                    <li class="StreamsFooter-item"><a href="" rel="noopener">Brand</a></li>
+                    <li class="StreamsFooter-item"><a href="marketing3" rel="noopener">Ads info</a></li>
+                    <li class="StreamsFooter-item"><a href="game" rel="noopener">Game</a></li>
                     <li class="StreamsFooter-item"><a href="marketing1" rel="noopener">Apps</a></li>
                     <li class="StreamsFooter-item"><a href="marketing1" rel="noopener">Advertise</a></li>
                     <li class="StreamsFooter-item"><a href="marketing1" rel="noopener">Marketing</a></li>

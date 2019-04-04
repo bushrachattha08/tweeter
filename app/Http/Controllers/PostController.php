@@ -10,7 +10,7 @@ use App\Follower;
 use Auth;
 use App\Http\Resources\Post as PostResource;
 
-
+use App\Http\Resources\Comments as CommentsResource;
 class PostController extends Controller
 {
 //
@@ -86,7 +86,50 @@ public function getAllPostsByNumber($number){
 
 $posts = Post::limit($number)->get();
 
+// $postlike = new Postlike;
+// foreach ($posts as $post) {
+//     $postId = $post["id"];
+//     $postlikes = Postlike::limit(1)->where("post_id","=",$post_id)->where("user_id","=",$request->user_id);
+//     $likedByUser = 0;
+//     if(isset($postlikes[0]["like"])){
+//         $likedByUser = $postlikes[0]["like"];
+//     }
+//     $post["liked_by_user"] = $likedByUser;
+//
+//     $totalPostsCount = Postlike::selectRaw('count(*) AS cnt,')->groupBy('user_id')->where ("post_id")->get();
+//
+//     $post["number_of_likes"] = count($totalPostsCount);
+//     $postsExtanded[] = $post;
+//     }
+//
+//     $posts = $postsExtanded;
+return new PostResource($posts);
 
+}
+
+public function getPostsByNumberFromStartPoint($number,$id){
+
+$posts = Post::limit($number)->where("id",">",$id)->orderBy('id','DESC')->get();
+$postsExtanded = [];
+// $postlike = new Postlike;
+// foreach ($posts as $post) {
+//     $postId = $post["id"];
+//     $postlikes = Postlike::limit(1)->where("post_id","=",$post_id)->where("user_id","=",$request->user_id)->orderBy('id','DESC')->get();
+//     $likedByUser = 0;
+//     if(isset($postlikes[0]["like"])){
+//         $likedByUser = $postlikes[0]["like"];
+//     }
+//     $post["liked_by_user"] = $likedByUser;
+//
+//     $totalPostsCount = Postlike::distinct('user_id')->
+//     where("post_id", "=" , $postId)->where ("like","=","1")->get();
+//
+//     $post["number_of_likes"] = count($totalPostsCount);
+//     $postsExtanded[] = $post;
+//     }
+//
+//
+// $posts = $postsExtanded;
 return new PostResource($posts);
 
 }

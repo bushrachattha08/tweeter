@@ -25,6 +25,7 @@
 </div>
 @section('content')
 
+
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
@@ -107,7 +108,16 @@
                                         <?php
                                         if(isset($posts) && ($posts!=null)){
                                             ?>
-                                            @foreach ($posts as $post)
+                                            <!-- @foreach ($posts as $post) -->
+                                            <div id="postsWrapper">
+                                                <!-- @{{ title }} -->
+
+
+<post-Component v-for="post in posts" :post=post></post-Component>
+
+
+                                            </div>
+
                                             <div class="row" >
                                                 <br/>
                                                 <div class="panel-body">
@@ -364,3 +374,8 @@
 
 @endsection
 @endsection
+<script>
+
+currentLoggedInUserUserId = {{ $user->id }}
+
+</script>

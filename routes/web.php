@@ -20,6 +20,12 @@ Route::get('/marketing', function () {
 Route::get('/marketing1', function () {
     return view('marketing1');
 });
+Route::get('/marketing3', function () {
+    return view('marketing3');
+});
+Route::get('/game', function () {
+    return view('game');
+});
 
 Auth::routes();
 

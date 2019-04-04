@@ -12,6 +12,7 @@ use App\Postlike;
 use Auth;
 use App\Http\Resources\Postlike as PostLikeResource;
 use App\Http\Resources\Comment as CommentResource;
+use App\Http\Resources\Comments as CommentsResource;
 // use App\Http\Resources\Editpost as EditpostResource;
 
 class HomeController extends Controller
@@ -195,6 +196,74 @@ public function editPostdisplay($id){
       return new CommentResource($comments);
 
   }
+
+      public function likepostViaApi(Request $request){
+      $user = Auth::user();
+      $postlike = new Postlike;
+
+//
+//       $previosPostlike = Postlike::limit(1)->where("user_id","=",$request->user_id)->where("post_id","=",$request->post_id)->orderBy('id','DESC')->get();
+//
+//
+//       if(count($previosPostlike) == 0){
+//
+//           $postlike ->user_id = $request->user_id;
+//           $postlike ->post_id = $request->post_id;
+//           $postlike ->postlikes = $request->like;
+//           if( $postlike -> save()){
+//           return '{"success": "1"}';
+//            }
+//            else{
+//                 return '{"success": "0"}';
+//            }
+//       }
+//
+// else{
+//     $postLikeId = $previosPostlike[0]["id"];
+//     $previosPostlike = PostLike::find($postLikeId);
+//     $previosPostlike ->like= $request->like;
+//     $previosPostlike->save();
+// }
+
+
+      $postlike ->user_id = $request->user_id;
+      $postlike ->post_id = $request->post_id;
+      $postlike ->postlikes = $request->like;
+      if( $postlike -> save()){
+      return '{"success": "1"}';
+       }
+       else{
+            return '{"success": "0"}';
+       }
+   }
+   // public function getPostComments($postId){
+   //
+   // $comments = Comment::where("post_id","=",$postId)->get();
+   //
+   // return new CommentResource($comments);
+   //
+   //  }
+   public function getPostComments($postId){
+
+   $comments = Comment::where("post_id","=",$postId)->get();
+   return new CommentResource($comments);
+   }
+
+
+   public function newCommentViaApi(Request $request){
+
+$comment = new Comment;
+$comment ->user_id = $request->user_id;
+$comment ->post_id = $request->post_id;
+$comment ->comment = $request->comment;
+if( $comment -> save()){
+return '{"success": "1"}';
+ }
+ else{
+      return '{"success": "0"}';
+ }
+}
+
 //   public function getAllEditPosts(){
 //
 //   $editPosts = EditPost::get();

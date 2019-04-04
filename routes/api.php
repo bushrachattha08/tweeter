@@ -23,7 +23,12 @@ Route::get('PostsByNumber/{number}', 'PostController@getAllPostsByNumber');
 Route::get('PostsByNumber/{number}/{start}', 'PostController@getAllPostsByNumberFromStart');
 Route::get('/comment', 'HomeController@getAllComments');
 
-// Route::get('/editpost', 'HomeController@getAllEditPosts');
+Route::get('postsbynumberfromstartpoint/{number}/{id}', 'PostController@getPostsByNumberFromStartPoint');
+
+Route::get('/post-comments/{postId}', 'HomeController@getPostComments');
+Route::post('/post-comments/{postId}', 'HomeController@getPostComments');
+Route::post('/new-comments', 'HomeController@newCommentViaApi');
 
 
-// Route::post('/like-post', 'homeController@getAllPostLikes');
+Route::post('/like-post', 'homeController@likepostViaApi');
+Route::get('/like-post', 'homeController@likepostViaApi');
