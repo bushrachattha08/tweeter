@@ -1,0 +1,233 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html,
+body {
+  background-color: #333;
+}
+.nerdy-pen {
+  display: flex;
+  flex-direction: column;
+  justify-content: Left;
+  align-content: center;
+  height: 100vh;
+  &__text {
+    color: #ffff;
+   font-family: 'Roboto', sans-serif;
+    padding: 1em 2em;
+    text-align: center;
+    font-size: 3.5em;
+  }
+}
+
+body{
+  /* background: 	#30E913; */
+  font-family: Arial;
+}
+
+svg {
+    display: block;
+    font: 10.5em 'Montserrat';
+    width: 90%;
+    height: 300px;
+    margin: 0 auto;
+}
+.navbar-fixed {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+}
+.parallax {
+
+    background: url("https://media2.giphy.com/media/Qh6aPCssL8J8I/giphy.gif");
+
+    height: 600px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+	height:800px;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #96ceb4;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #ffeead;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #ff6f69;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: #ffcc5c;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #88d8b0;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+div.bg-color {
+  background-color: 	rgb(0,0,0);
+}
+div.container {
+  div.textillate {
+    color: #fff;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+.item {
+  width: 1000px;
+  height: 400px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: rgba(255,85,0, .7);
+  text-align: center;
+  color: #4E4C48;
+  font-size: 1.5em;
+}
+.item1 {
+  width: 1000px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: rgb(255,0,0);
+  text-align: center;
+  color: #F8FFF8;
+  font-size: 1.5em;
+}
+.item2 {
+  width: 300px;
+  height: 600px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: 	rgb(127,255,0);
+  text-align: center;
+  color: #F8FFF8;
+  font-size: 1.0em;
+}
+.img-responsive{
+    width: 60%;
+    border-radius: 50%;
+}
+
+.center{
+    text-align: center;
+}
+/* LAYOUT */
+.container{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60%       40%;
+}
+/* Elements classes */
+.btn{
+    border: 0;
+    box-shadow: 5px 5px 10px #848484;
+    padding: 15px 45px;
+    color: #303233;
+    font-weight: bold;
+    background-color: #fff;
+    text-transform: uppercase;
+    font-family: "h-font";
+}
+/* START HEADER */
+.header{
+    background-image: url('') ;
+    background-blend-mode: overlay;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+}
+.header h1 , .header h2 , .header h3 , .header .txt{
+    margin:0.5rem ;
+}
+.header .type .txt{
+    border-right: 0.2rem solid #777;
+}
+.header h1{
+    font-size: 2.7rem;
+    color: #f3ef09;
+}
+.header h2 {
+    font-size: 1.8rem;
+    color: rgb(231, 217, 13);
+    margin-top: 2rem;
+}
+.header h3{
+    font-size: 1.1rem;
+    color: rgb(223, 219, 219);
+    margin-top: 2rem;
+}
+/* MEDIA QUERY FOR SMALL SCREEN */
+@media(min-width:768px) and (max-width:991px){
+    html{
+        font-size: 15px;
+    }
+    .header{
+        height: 100vh;
+    }
+    .header h1{
+        font-size: 1.8rem;
+        color: #f3ef09;
+    }
+    .header h2{
+        font-size: 1rem;
+        color: #f3ef09;
+    }
+    .header h3{
+        font-size: 0.9rem;
+    }
+}
+/* MEDIA QUERY FOR MOBILE SCREEN */
+@media(max-width:767px){
+    html{
+        font-size: 13px !important;
+    }
+    .img-responsive{
+        width: 40%;
+    }
+    .header{
+        height: 100vh;
+    }
+    .header h1{
+        font-size: 1.5rem;
+    }
+    .header h2{
+        font-size: 1rem;
+    }
+    .header h3{
+        font-size: 0.5rem;
+    }
+}
