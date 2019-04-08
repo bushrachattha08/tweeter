@@ -2,7 +2,7 @@
     <div class="post">
         <div class="media-body">
             {{ post.post}}
-            this is Tweeter
+            this is tweet
         </div>
         by {{ post.user_id }} @ {{ post.created_at }}
 </br>
@@ -65,9 +65,10 @@ style="background-color: #1da1f2; color:white;">unlike</button>
         by - {{ post.user_id}} @ {{ post.created_at }}
         <br/>
         <button :class="{'displaying': likeActive}" class="btn btn-sm likeUnlikeBtn"
-        @click="likePost(post.id)" style="background-color: red; ">like</button> &nbsp;&nbsp;
+        @click="likePost(post.id)" ><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+</button> &nbsp;&nbsp;
         <button :class="{'displaying': unlikeActive}" class="btn btn-sm likeUnlikeBtn"
-        @click="unlikePost(post.id)" style="background-color: white; color:red;">unlike</button>
+        @click="unlikePost(post.id)" ></i></button>
 
     <comments-component :postId ="post.id" ></comments-component>
 
@@ -89,79 +90,7 @@ style="background-color: #1da1f2; color:white;">unlike</button>
 
 
 </template>
-<script>
-export default {
-mounted() {
-console.log('Post Component mounted.')
-},
-data() {
-return{
-likeActive: true,
-unlikeActive: false,
-newComment: ""
-}
-},
-methods:{
-makeComment(){
 
-console.log(this.post);
-axios.post('/api/new-comment',{
-post_id: this.post.id,
-user_id: currentLoggedInUserUserId,
-comment:this.newComment
-})
-.then(function (response) {
-
-
-console.log(response);
-})
-.catch(function (error){
-console.log(error);
-});
-
-
-location.reload();
-},
-
-likePost(postId){
-this.likeActive = false;
-this.unlikeActive = true;
-axios.post('/api/post-likes',{
-
-post_id: postId,
-like: "1",
-user_id:currentLoggedInUserUserId
-})
-.then(function (response) {
-console.log(response);
-})
-.catch(function (error) {
-console.log(error);
-});
-},
-unlikePost(postId){
-this.likeActive = true;
-this.unlikeActive = false;
-axios.post('/api/post-likes',{
-post_id: postId,
-like: "0",
-user_id:currentLoggedInUserUserId
-})
-.then(function (response) {
-console.log(response);
-})
-.catch(function (error){
-console.log(error);
-});
-}
-},
-props:['post']
-}
-
-</script>
-
-
-<!--
 <script>
 export default {
     mounted() {
@@ -233,4 +162,4 @@ export default {
 }
 
 
-</script> -->
+</script>

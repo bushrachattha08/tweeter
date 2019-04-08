@@ -33,6 +33,15 @@ This files contents are outlined below.
   text-align: center;
 }
 
+.fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa:hover {
+  color: red;
+}
 /*--------------------------------------------------*/
 /*Prefix Styles*/
 .m0 {

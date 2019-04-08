@@ -25,7 +25,7 @@ Route::get('/comment', 'HomeController@getAllComments');
 
 Route::get('postsbynumberfromstartpoint/{number}/{id}', 'PostController@getPostsByNumberFromStartPoint');
 
-Route::get('/post-comments/{postId}', 'HomeController@getPostComments');
+Route::get('/post-comments/{postId}', 'HomeController@getAllPostComments');
 Route::post('/post-comments/{postId}', 'HomeController@getPostComments');
 Route::post('/new-comments', 'HomeController@newCommentViaApi');
 

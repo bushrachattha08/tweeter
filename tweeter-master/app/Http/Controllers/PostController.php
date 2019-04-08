@@ -84,7 +84,7 @@ return new PostResource($posts);
 }
 public function getAllPostsByNumber($number){
 
-$posts = Post::limit($number)->get();
+$posts = Post::limit($number)->orderBy('id',"<",'DESC')->get();
 
 // $postlike = new Postlike;
 // foreach ($posts as $post) {
@@ -109,7 +109,7 @@ return new PostResource($posts);
 
 public function getPostsByNumberFromStartPoint($number,$id){
 
-$posts = Post::limit($number)->where("id",">",$id)->orderBy('id','DESC')->get();
+$posts = Post::limit($number)->where("id","<",$id)->orderBy('id','DESC')->get();
 $postsExtanded = [];
 // $postlike = new Postlike;
 // foreach ($posts as $post) {

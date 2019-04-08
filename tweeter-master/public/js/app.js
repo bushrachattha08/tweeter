@@ -1971,12 +1971,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Post Component mounted.');
+
+    if (this.post.liked_by_user == "1") {
+      this.unlikeActive = true;
+      this.likeActive = false;
+    }
   },
   data: function data() {
     return {
+      posts: [],
       likeActive: true,
       unlikeActive: false,
       newComment: ""
@@ -1984,22 +1992,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     makeComment: function makeComment() {
-      console.log(this.post);
       axios.post('/api/new-comment', {
         post_id: this.post.id,
         user_id: currentLoggedInUserUserId,
         comment: this.newComment
       }).then(function (response) {
         console.log(response);
-      }).catch(function (error) {
+      }).then(function (error) {
         console.log(error);
       });
-      location.reload();
     },
     likePost: function likePost(postId) {
       this.likeActive = false;
       this.unlikeActive = true;
-      axios.post('/api/post-likes', {
+      axios.post('/api/like-post', {
         post_id: postId,
         like: "1",
         user_id: currentLoggedInUserUserId
@@ -2012,7 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
     unlikePost: function unlikePost(postId) {
       this.likeActive = true;
       this.unlikeActive = false;
-      axios.post('/api/post-likes', {
+      axios.post('/api/like-post', {
         post_id: postId,
         like: "0",
         user_id: currentLoggedInUserUserId
@@ -37205,16 +37211,16 @@ var render = function() {
             "font-style": "italic"
           }
         },
-        [_vm._v("\n\n        " + _vm._s(_vm.post.post) + "\n\n    ")]
+        [_vm._v("\n\n            " + _vm._s(_vm.post.post) + "\n\n        ")]
       ),
       _vm._v(" "),
       _c("br"),
       _vm._v(
-        "\n    by - " +
+        "\n        by - " +
           _vm._s(_vm.post.user_id) +
           " @ " +
           _vm._s(_vm.post.created_at) +
-          "\n    "
+          "\n        "
       ),
       _c("br"),
       _vm._v(" "),
@@ -37223,30 +37229,29 @@ var render = function() {
         {
           staticClass: "btn btn-sm likeUnlikeBtn",
           class: { displaying: _vm.likeActive },
-          staticStyle: { "background-color": "red" },
           on: {
             click: function($event) {
               return _vm.likePost(_vm.post.id)
             }
           }
         },
-        [_vm._v("like")]
+        [
+          _c("i", {
+            staticClass: "fa fa-thumbs-up",
+            attrs: { onclick: "myFunction(this)" }
+          })
+        ]
       ),
-      _vm._v("   \n    "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-sm likeUnlikeBtn",
-          class: { displaying: _vm.unlikeActive },
-          staticStyle: { "background-color": "white", color: "red" },
-          on: {
-            click: function($event) {
-              return _vm.unlikePost(_vm.post.id)
-            }
+      _vm._v("   \n        "),
+      _c("button", {
+        staticClass: "btn btn-sm likeUnlikeBtn",
+        class: { displaying: _vm.unlikeActive },
+        on: {
+          click: function($event) {
+            return _vm.unlikePost(_vm.post.id)
           }
-        },
-        [_vm._v("unlike")]
-      ),
+        }
+      }),
       _vm._v(" "),
       _c("comments-component", { attrs: { postId: _vm.post.id } }),
       _vm._v(" "),
@@ -49509,7 +49514,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
 Vue.component('post-component', __webpack_require__(/*! ./components/PostComponent.vue */ "./resources/js/components/PostComponent.vue").default);
-Vue.component('comments-component', __webpack_require__(/*! ./components/CommentsComponent.vue */ "./resources/js/components/CommentsComponent.vue").default);
+Vue.component('comments-component', __webpack_require__(/*! ./components/CommentsComponent.vue */ "./resources/js/components/CommentsComponent.vue").default); // 
+// Vue.component('comment-component', require('./components/CommentComponent.vue').default);
+
 Vue.component('timeline-component', __webpack_require__(/*! ./components/TimelineComponent.vue */ "./resources/js/components/TimelineComponent.vue"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to

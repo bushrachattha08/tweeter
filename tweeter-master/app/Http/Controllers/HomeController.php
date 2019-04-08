@@ -10,6 +10,9 @@ use App\Follower;
 use App\unFollower;
 use App\Postlike;
 use Auth;
+use App\Http\Resources\Post as PostResource;
+
+
 use App\Http\Resources\Postlike as PostLikeResource;
 use App\Http\Resources\Comment as CommentResource;
 use App\Http\Resources\Comments as CommentsResource;
@@ -188,14 +191,7 @@ public function editPostdisplay($id){
 
       }
 
-      public function getAllComments(){
 
-      $comments = Comment::get();
-
-
-      return new CommentResource($comments);
-
-  }
 
       public function likepostViaApi(Request $request){
       $user = Auth::user();
@@ -245,7 +241,8 @@ public function editPostdisplay($id){
    //  }
    public function getPostComments($postId){
 
-   $comments = Comment::where("post_id","=",$postId)->get();
+   // $comments = Comment::where("post_id","=",$postId)->get();
+   $comments = Comment::limit($number)->orderBy('id',"<",'DESC')->get();
    return new CommentResource($comments);
    }
 
@@ -256,36 +253,21 @@ $comment = new Comment;
 $comment ->user_id = $request->user_id;
 $comment ->post_id = $request->post_id;
 $comment ->comment = $request->comment;
-if($request->comment){
-$comment -> save();
+if( $comment -> save()){
 return '{"success": "1"}';
+ }
+ else{
+      return '{"success": "0"}';
+ }
 }
-else{
-return '{"success": "0"}';
-}
-}
+public function getAllPostComments(){
 
-// public function getTweetComments($tweetId){
-// $comments = Comments::where("tweet_id","=",$tweetId)->get();
-// return new CommentsResource($comments);
-// }
-// public function newCommentViaApi(Request $request){
-//
-//
-// $comment = new Comments;
-//
-// $comment ->user_id = $request->user_id;
-// $comment ->tweet_id = $request->tweet_id;
-// $comment ->comments = $request->comment;
-// if($request->comment){
-// $comment -> save();
-// return '{"success": "1"}';
-// }
-// else{
-// return '{"success": "0"}';
-// }
-// }
+$comments = Comment::get();
 
+
+return new CommentResource($comments);
+
+}
 
 //   public function getAllEditPosts(){
 //

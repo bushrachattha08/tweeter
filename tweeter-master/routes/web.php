@@ -29,8 +29,8 @@ Route::get('/game', function () {
 Route::get('/get-started', function () {
     return view('get-started');
 });
-Route::get('/profile2', function () {
-    return view('profile2');
+Route::get('/profile1', function () {
+    return view('profile1');
 });
 Auth::routes();
 

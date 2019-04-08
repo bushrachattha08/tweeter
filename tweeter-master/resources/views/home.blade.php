@@ -32,7 +32,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="#"><img class="img-responsive" alt="" src="https://finance.advids.co/wp-content/uploads//2017/08/onedrive-sync.gif"></a>
+                    <a href="profil1"><img class="img-responsive" alt="" src="https://finance.advids.co/wp-content/uploads//2017/08/onedrive-sync.gif"></a>
             </div>
         </div>
         <div class="panel panel-default panel-custom">
@@ -355,4 +355,10 @@
 
 currentLoggedInUserUserId = {{ $user->id }}
 
+</script>
+
+<script>
+function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}
 </script>

@@ -84,7 +84,7 @@
                 <ul class="nav navbar-nav">
                     <li class="StreamsFooter-item"><a href="marketing3" rel="noopener">About</a></li>
                     <li class="StreamsFooter-item"><a href="get-started" rel="noopener">get-started</a></li>
-                    <li class="StreamsFooter-item"><a href="" rel="noopener">Blog</a></li>
+                    <li class="StreamsFooter-item"><a href="profile1" rel="noopener">Blog</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Status</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Jobs</a></li>
                     <li class="StreamsFooter-item"><a href="" rel="noopener">Terms</a></li>
